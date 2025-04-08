@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediaPipe Handpose</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer type="module" src="./script.js"></script>
+</head>
+
+<body>
+<section>
+  <h1>Battle System Train</h1>
+  <button id="webcamButton">START WEBCAM</button>
+  <button id="exportButton">EXPORT TRAINING DATA</button>
+  <div class="videoView">
+    <div style="position: relative;">
+      <video id="webcam" style="position: absolute;" muted autoplay playsinline></video>
+      <canvas id="output_canvas" style="position: absolute; left: 0; top: 0;"></canvas>
+      <div id="myimage"></div>
+    </div>
+  </div>
+</section>
+<div id="predictionDiv"></div>
+</body>
+
+</html>
