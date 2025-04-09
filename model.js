@@ -1,14 +1,14 @@
+
 ml5.setBackend("webgl");
 const options = {
     task: 'classification',
     debug: true,
     layers: [
         { type: 'dense', units: 32, activation: 'relu' },
-        { type: 'dense', units: 32, activation: 'relu' },
-        { type: 'dense', units: 32, activation: 'relu' },
+        { type: 'dense', units: 16, activation: 'relu' },
         { type: 'dense', activation: 'softmax' },
     ],
-    learningRate: 0.01,
+    learningRate: 0.5,
     epochs: 10
 };
 const nn = ml5.neuralNetwork(options);
@@ -18,6 +18,14 @@ const testButton = document.getElementById("testButton");
 
 trainButton.addEventListener("click", fetchTrainingData);
 testButton.addEventListener("click", testModel);
+
+const saveButton = document.getElementById("saveButton");
+saveButton.addEventListener("click", () => {
+    nn.save("model", () => {
+        console.log("Model was saved!");
+    });
+});
+
 
 let testData = [];
 
@@ -51,7 +59,8 @@ async function trainNN(trainingData) {
 
     function finishedTraining() {
         console.log("Training complete!");
-        nn.save("model", () => console.log("Model was saved!"));
+        const saveButton = document.getElementById("saveButton");
+        if (saveButton) saveButton.disabled = false;
     }
 }
 
