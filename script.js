@@ -78,7 +78,7 @@ async function predictWebcam() {
             collectedData.Charge.push(handData);
             feedbackDiv.textContent = "Charge geregistreerd!";
         } else {
-            feedbackDiv.textContent = ""; // Leeg als geen toets is ingedrukt
+            feedbackDiv.textContent = "";
         }
 
         canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);

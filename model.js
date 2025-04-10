@@ -1,4 +1,3 @@
-
 ml5.setBackend("webgl");
 const options = {
     task: 'classification',
@@ -15,19 +14,17 @@ const nn = ml5.neuralNetwork(options);
 
 const trainButton = document.getElementById("trainButton");
 const testButton = document.getElementById("testButton");
+const saveButton = document.getElementById("saveButton");
+
+let testData = [];
 
 trainButton.addEventListener("click", fetchTrainingData);
 testButton.addEventListener("click", testModel);
-
-const saveButton = document.getElementById("saveButton");
 saveButton.addEventListener("click", () => {
     nn.save("model", () => {
         console.log("Model was saved!");
     });
 });
-
-
-let testData = [];
 
 async function fetchTrainingData() {
     fetch("TrainingData.json")
