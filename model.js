@@ -7,7 +7,7 @@ const options = {
         { type: 'dense', units: 16, activation: 'relu' },
         { type: 'dense', activation: 'softmax' },
     ],
-    learningRate: 0.5,
+    learningRate: 0.01,
     epochs: 10
 };
 const nn = ml5.neuralNetwork(options);
